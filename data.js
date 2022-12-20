@@ -6,7 +6,8 @@ export const menuArray = [
         ingredients: ["pepperoni", "mushrom", "mozarella"],
         uuid: uuidv4(),
         price: 14,
-        emoji: "🍕"
+        emoji: "🍕",
+        uuid: uuidv4()
     },
     {
         name: "Hamburger",
