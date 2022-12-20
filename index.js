@@ -1,13 +1,20 @@
 import { menuArray } from './data.js'
 const menuPage = document.getElementById('menu-page')
+
 let orderedItems = []
 
 document.addEventListener('click', function(e){
     if (e.target.dataset.addbtn) {
         handleAddBtn(e.target.dataset.addbtn) 
     }
-    else if (e.target.id="remove-btn"){
+    else if (e.target.id == "remove-btn"){
         handleRemoveBtn()
+    }
+    else if (e.target.id == "complete-order-btn"){
+        document.getElementById('pay-form').style.display = 'flex'
+    }
+    else if (e.target.id == "pay-btn"){
+        console.log('pay')
     }
 })
 
@@ -74,3 +81,7 @@ function render(){
     })
     return newOrder
 }
+
+
+
+
