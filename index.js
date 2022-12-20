@@ -4,7 +4,10 @@ let orderedItems = []
 
 document.addEventListener('click', function(e){
     if (e.target.dataset.addbtn) {
-        handleAddBtn(e.target.dataset.addbtn)
+        handleAddBtn(e.target.dataset.addbtn) 
+    }
+    else if (e.target.id="remove-btn"){
+        handleRemoveBtn()
     }
 })
 
@@ -13,8 +16,11 @@ function handleAddBtn(addBtnId){
         return menu.uuid === addBtnId
     })[0]
     orderedItems.push(orderBtn)
-    render()
-    renderT()
+    render() 
+}
+
+function handleRemoveBtn(){
+    console.log('remove')
 }
 
 menuArray.forEach(function(menu){
@@ -36,16 +42,6 @@ menuArray.forEach(function(menu){
     `
 })
 
-function renderT(){
-    const newOrder = orderedItems.filter(function(menu){
-        let count = 0
-        document.getElementById('menu-name').innerHTML += `<h2>${menu.name}<span><button>remove</button></span></h2>`
-        document.getElementById('price').innerHTML += `<h2>$${menu.price}</h2>`
-        document.getElementById('total-price').innerHTML += `<h2>$${menu.price}</h2>`  
-    })
-    return newOrder
-}
-
 function orderedItemsLists(){
     let orderHtml = ``
 
@@ -59,7 +55,7 @@ function orderedItemsLists(){
         </div>
         <div class="total-price">
             <h2>Total price:</h2>
-            <h2 id="total-price"></h2>
+            <span id="total-price"></span>
         </div>
             <button id="complete-order-btn">Complete order</button>
     </section>
@@ -68,5 +64,13 @@ function orderedItemsLists(){
 }
 
 function render(){
+    let totalPrice = 0
     document.getElementById('confirm-order-page').innerHTML = orderedItemsLists()
+    const newOrder = orderedItems.filter(function(menu){
+        totalPrice += menu.price
+        document.getElementById('menu-name').innerHTML += `<h2>${menu.name}<span><button id="remove-btn">remove</button></span></h2>`
+        document.getElementById('price').innerHTML += `<h2>$${menu.price}</h2>`
+        document.getElementById('total-price').innerHTML = `<h2>$${totalPrice}</h2>`
+    })
+    return newOrder
 }

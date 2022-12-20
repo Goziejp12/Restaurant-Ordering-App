@@ -83,11 +83,11 @@ i:active, #complete-order-btn:active {
     border-bottom: 2px solid;
 }
 
-.price{
+.price, #total-price{
     margin-left: auto;
 }
 
-.name-area button{
+#remove-btn{
     border: 0;
     background-color: antiquewhite;
     cursor: pointer;
@@ -97,7 +97,6 @@ i:active, #complete-order-btn:active {
 
 .total-price{
     display: flex;
-    justify-content: space-between;
 }
 
 #complete-order-btn{
