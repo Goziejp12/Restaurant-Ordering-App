@@ -17,8 +17,7 @@ payForm.addEventListener('submit', function(e){
     document.getElementById('cardNumber').value = ``
     document.getElementById('cvv').value = ``
     orderedItems.splice(0, orderedItems.length)
-    confirmOrderPage.innerHTML = ``
-    
+    confirmOrderPage.innerHTML = ``   
 })
 
 document.addEventListener('click', function(e){
@@ -26,8 +25,8 @@ document.addEventListener('click', function(e){
         handleAddBtn(e.target.dataset.addbtn) 
         document.getElementById('order-msg').style.display = 'none'
     }
-    else if (e.target.id == "remove-btn"){
-        handleRemoveBtn()
+    else if (e.target.dataset.remove){
+        handleRemoveBtn(e.target.dataset.remove)
     }
     else if (e.target.id == "complete-order-btn"){
         document.getElementById('pay-form').style.display = 'flex'
@@ -39,11 +38,16 @@ function handleAddBtn(addBtnId){
         return menu.uuid === addBtnId
     })[0]
     orderedItems.push(orderBtn)
-    render() 
+    render()
 }
 
-function handleRemoveBtn(){
-  orderedItems.pop()
+function handleRemoveBtn(index){
+    orderedItems.splice(index, 1)
+    render()
+
+    if (orderedItems.length === 0){
+        confirmOrderPage.innerHTML = ``
+    }
 }
 
 menuArray.forEach(function(menu){
@@ -70,11 +74,11 @@ function orderedItemsLists(){
 
     orderHtml = 
     `
-    <section class="confirm-order">
+    <section>
         <h2 class="your-order">Your Order</h2>
-        <div class="name-area" id="name-area">
+        <div class="name-area">
             <h2 id="menu-name"></h2>
-            <h2 class="price" id="price"></h2>
+            <h2 id="price"></h2>
         </div>
         <div class="total-price">
             <h2>Total price:</h2>
@@ -89,15 +93,12 @@ function orderedItemsLists(){
 function render(){
     let totalPrice = 0
     confirmOrderPage.innerHTML = orderedItemsLists()
-    const newOrder = orderedItems.filter(function(menu){
+    const newOrder = orderedItems.filter(function(menu, index){
         totalPrice += menu.price
-        document.getElementById('menu-name').innerHTML += `<h2>${menu.name}<span><button id="remove-btn">remove</button></span></h2>`
+        document.getElementById('menu-name').innerHTML += 
+        `<h2>${menu.name}<span id="remove-btn" data-remove="${index}">remove</span></h2>`
         document.getElementById('price').innerHTML += `<h2>$${menu.price}</h2>`
         document.getElementById('total-price').innerHTML = `<h2>$${totalPrice}</h2>`
     })
     return newOrder
 }
-
-
-
-

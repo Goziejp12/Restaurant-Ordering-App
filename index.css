@@ -83,16 +83,14 @@ i:active, #complete-order-btn:active, .pay-btn:active{
     border-bottom: 2px solid;
 }
 
-.price, #total-price{
+#price, #total-price{
     margin-left: auto;
 }
 
 #remove-btn{
-    border: 0;
-    background-color: antiquewhite;
     cursor: pointer;
     color: gray;
-    font-weight: bold;
+    font-size: small;
 }
 
 .total-price{
