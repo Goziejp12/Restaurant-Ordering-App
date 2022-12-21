@@ -22,11 +22,12 @@
             </div>
             <form class="pay-form" id="pay-form">
                 <h2>Enter card details</h2>
-                <input type="text" placeholder="Enter your name" required>
-                <input type="text" placeholder="Enter your card number" required>
-                <input type="text" placeholder="Enter CVV" required> 
+                <input type="text" placeholder="Enter your name" name="buyerNameOnCard" id="buyerNameOnCard" required>
+                <input type="text" placeholder="Enter your card number" id="cardNumber" required>
+                <input type="text" placeholder="Enter CVV" id="cvv" required> 
                 <button type="submit" class="pay-btn" id="pay-btn">Pay</button>
             </form>
+            <h2 class="order-msg" id="order-msg"></h2>
         </main>
         <script src="index.js" type="module"></script>
     </body>

@@ -1,20 +1,35 @@
 import { menuArray } from './data.js'
 const menuPage = document.getElementById('menu-page')
+const payForm = document.getElementById('pay-form')
+const confirmOrderPage = document.getElementById('confirm-order-page')
 
 let orderedItems = []
+
+payForm.addEventListener('submit', function(e){
+    e.preventDefault()                               
+    const cardDetailsForm = new FormData(payForm)
+    const buyerNameOnCard = cardDetailsForm.get('buyerNameOnCard')
+    document.getElementById('order-msg').innerHTML = `Thanks, ${buyerNameOnCard}! Your order is on the way!`
+    document.getElementById('order-msg').style.display = 'block'
+    document.getElementById('pay-form').style.display = 'none'
+    document.getElementById('buyerNameOnCard').value = ``
+    document.getElementById('cardNumber').value = ``
+    document.getElementById('cvv').value = ``
+    orderedItems.splice(0, orderedItems.length)
+    confirmOrderPage.innerHTML = ``
+    
+})
 
 document.addEventListener('click', function(e){
     if (e.target.dataset.addbtn) {
         handleAddBtn(e.target.dataset.addbtn) 
+        document.getElementById('order-msg').style.display = 'none'
     }
     else if (e.target.id == "remove-btn"){
         handleRemoveBtn()
     }
     else if (e.target.id == "complete-order-btn"){
         document.getElementById('pay-form').style.display = 'flex'
-    }
-    else if (e.target.id == "pay-btn"){
-        console.log('pay')
     }
 })
 
@@ -27,7 +42,7 @@ function handleAddBtn(addBtnId){
 }
 
 function handleRemoveBtn(){
-    console.log('remove')
+  orderedItems.pop()
 }
 
 menuArray.forEach(function(menu){
@@ -72,7 +87,7 @@ function orderedItemsLists(){
 
 function render(){
     let totalPrice = 0
-    document.getElementById('confirm-order-page').innerHTML = orderedItemsLists()
+    confirmOrderPage.innerHTML = orderedItemsLists()
     const newOrder = orderedItems.filter(function(menu){
         totalPrice += menu.price
         document.getElementById('menu-name').innerHTML += `<h2>${menu.name}<span><button id="remove-btn">remove</button></span></h2>`

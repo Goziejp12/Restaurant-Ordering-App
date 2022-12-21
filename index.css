@@ -103,7 +103,7 @@ i:active, #complete-order-btn:active, .pay-btn:active{
     display: block;
     margin-left: auto;
     margin-right: auto;
-    background-color: #16DB99;
+    background-color: #4895ef;
     color: white;
     padding: 20px 100px;
     border: 0;
@@ -142,6 +142,14 @@ i:active, #complete-order-btn:active, .pay-btn:active{
 input{
     font-size: x-large;
     padding: 15px;
+}
+
+.order-msg{
+    display: none;
+    background-color: #caf0f8;
+    padding: 30px 20px;
+    border-radius: 3px;
+    color: #03045e;
 }
 
 
