@@ -9,7 +9,8 @@ payForm.addEventListener('submit', function(e){
     e.preventDefault()                               
     const cardDetailsForm = new FormData(payForm)
     const buyerNameOnCard = cardDetailsForm.get('buyerNameOnCard')
-    document.getElementById('order-msg').innerHTML = `Thanks, ${buyerNameOnCard}! Your order is on the way!`
+    document.getElementById('order-msg').innerHTML = 
+    `Thanks, ${buyerNameOnCard.charAt(0).toUpperCase()}${buyerNameOnCard.slice(1)}! Your order is on the way!`
     document.getElementById('order-msg').style.display = 'block'
     document.getElementById('pay-form').style.display = 'none'
     document.getElementById('buyerNameOnCard').value = ``
