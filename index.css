@@ -97,10 +97,6 @@ i:active, #complete-order-btn:active, .pay-btn:active{
     border-bottom: 2px solid red;
 }
 
-#remove-btn:active{
-
-}
-
 .total-price{
     display: flex;
 }
