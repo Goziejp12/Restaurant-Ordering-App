@@ -91,6 +91,7 @@ i:active, #complete-order-btn:active, .pay-btn:active, #remove-btn:active{
     cursor: pointer;
     color: gray;
     font-size: small;
+    border: 1px solid;
 }
 
 .total-price{
