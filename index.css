@@ -67,10 +67,10 @@ i {
     padding: 15px;
 }
 
-i:hover, #complete-order-btn:hover, .pay-btn:hover, #remove-btn:hover{
+i:hover, #complete-order-btn:hover, .pay-btn:hover{
     box-shadow: 1px 1px 5px gray;
 }
-i:active, #complete-order-btn:active, .pay-btn:active, #remove-btn:active{
+i:active, #complete-order-btn:active, .pay-btn:active{
     box-shadow: 1px 1px 5px whitesmoke;
 }
 
@@ -91,7 +91,15 @@ i:active, #complete-order-btn:active, .pay-btn:active, #remove-btn:active{
     cursor: pointer;
     color: gray;
     font-size: small;
-    border: 1px solid;
+}
+
+#remove-btn:hover{
+    background-color: aqua;
+    box-shadow: 1px 1px 5px gray;
+}
+
+#remove-btn:active{
+
 }
 
 .total-price{
