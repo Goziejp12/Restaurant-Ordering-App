@@ -94,8 +94,7 @@ i:active, #complete-order-btn:active, .pay-btn:active{
 }
 
 #remove-btn:hover{
-    background-color: aqua;
-    box-shadow: 1px 1px 5px gray;
+    border-bottom: 2px solid red;
 }
 
 #remove-btn:active{
