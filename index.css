@@ -67,10 +67,10 @@ i {
     padding: 15px;
 }
 
-i:hover, #complete-order-btn:hover, .pay-btn:hover{
+i:hover, #complete-order-btn:hover, .pay-btn:hover, #remove-btn:hover{
     box-shadow: 1px 1px 5px gray;
 }
-i:active, #complete-order-btn:active, .pay-btn:active{
+i:active, #complete-order-btn:active, .pay-btn:active, #remove-btn:active{
     box-shadow: 1px 1px 5px whitesmoke;
 }
 
