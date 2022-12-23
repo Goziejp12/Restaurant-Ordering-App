@@ -3,14 +3,14 @@ import { v4 as uuidv4 } from 'https://jspm.dev/uuid'
 export const menuArray = [
     {
         name: "Pizza",
-        ingredients: ["pepperoni", "mushrom", "mozarella"],
+        ingredients: ["pepperoni, mushrom, mozarella"],
         price: 14,
         emoji: "🍕",
         uuid: uuidv4()
     },
     {
         name: "Hamburger",
-        ingredients: ["beef", "cheese", "lettuce"],
+        ingredients: ["beef, cheese, lettuce"],
         price: 13.5,
         emoji: "🍔",
         uuid: uuidv4()
